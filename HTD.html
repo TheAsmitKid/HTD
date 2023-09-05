@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Card</title>
+    <!-- Google Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #fdbf00;
+}
+.card {
+  width: 640px;
+  height: 400px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+  transition: 1s;
+  transform: rotate(-5deg);
+}
+.card:hover {
+  transform: rotate(-10deg);
+}
+.card:hover .outside {
+  transform: rotateY(-140deg);
+}
+.outside,
+.inside {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  left: 50.1%;
+}
+.inside {
+  background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+  line-height: 2;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  left: 50%;
+}
+.outside {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  z-index: 1;
+  transform-origin: left;
+  transition: 2s;
+  cursor: pointer;
+}
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+}
+.front {
+  background-color: #ffffff;
+}
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+}
+.cake {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+}
+.middle-layer {
+  height: 80px;
+  width: 240px;
+  background-repeat: repeat;
+  background-size: 60px 100px;
+  background-position: 28px 0;
+  background-image: linear-gradient(
+      transparent 50px,
+      #fedbab 50px,
+      #fedbab 60px,
+      transparent 60px
+    ),
+    radial-gradient(circle at 30px 5px, #994c10 30px, #fcbf29 31px);
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  margin: auto;
+}
+.middle-layer {
+  transform: scale(0.85);
+  top: -50px;
+}
+.candle {
+  height: 45px;
+  width: 15px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fd3018 0,
+    #fd3018 5px,
+    #ffa89e 5px,
+    #ffa89e 10px
+  );
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 123px;
+}
+.candle:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: #ffa500;
+  border-radius: 0 50% 50% 50%;
+  bottom: 48px;
+  transform: rotate(45deg);
+  left: -1px;
+}
+.outside p {
+  font-size: 23px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 6px;
+  color: #000046;
+}
+.back h1 {
+  font-size: 120px;
+  line-height: 120px;
+  position: absolute;
+  left: 26.66%;
+  top: 26.66%;
+}
+.back h2{
+	font-size: 42px;
+	line-height: 42px;
+	position: absolute;
+}
+.back .flower1{
+	top: 10px;
+	transform: rotateZ(180deg);
+}
+.back .flower2{
+	top: 10px;
+	left:30px;
+	transform: rotateZ(-50deg);
+}
+.back .flower3{
+	top:40px;
+	transform: rotateZ(25deg);
+}
+.inside .flower1{
+	font-size: 42px;
+	line-height: 42px;
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+}
+.inside .flower2{
+	font-size: 42px;
+	line-height: 42px;
+	position: absolute;
+	bottom: 40px;
+	right: 0;
+	transform: rotateZ(-140deg);
+}
+.inside .flower3{
+	font-size: 42px;
+	line-height: 42px;
+	position: absolute;
+	bottom: 10px;
+	right: 30px;
+	transform: rotateZ(120deg);
+}
+.back .thanks h1{
+	position: relative;
+	top: 60px;
+	left: 60px;
+	display: inline-block;
+	width: 90px;
+	height: 90px;
+	background-color: red;
+	border-radius: 30px;
+	font-size: 12px;
+	text-align: center;
+	line-height: normal;
+	padding: 25px 10px 0;
+}
+.back .thanks h1 { transform:rotate(5deg); background: #8c8cf5;}
+.back .thanks h1:nth-child(2n) { transform:rotate(-4deg); background: #8cf5a8;}
+.back .thanks h1:nth-child(3n) { transform:rotate(2deg); background: #8ce0f5;}
+.back .thanks h1:nth-child(4n) { transform:rotate(-5deg); background: #bd8cf5;}
+.back .thanks h1:nth-child(5n) { transform:rotate(-6deg); background: #a8f58c;}
+.back .thanks h1:nth-child(6n) { transform:rotate(6deg);  background: #f58cc4;}
+.bwc{
+  color: whitesmoke;
+  font-size: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 25px;
+  width: 100vw;
+}
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="outside">
+        <div class="front">
+          <p>Happy Teachers' Day</p>
+          <div class="cake">
+            <div class="middle-layer"></div>
+            <div class="candle"></div>
+          </div>
+        </div>
+        <div class="back">
+        	<h2 class="flower2">&#127802;</h2>
+        	<h2 class="flower3">&#127802;</h2>
+        	<h2 class="flower1">&#127802;</h2>
+        	<div class="thanks">
+        		<h1>&ldquo;Meenakshi Ma'am&ldquo;</h1>
+        		<h1>&ldquo;Jyoti Ma'am&ldquo;</h1><br>
+        		<h1>&ldquo;Talib Sir&ldquo;</h1>
+        		<h1>&ldquo;Vandana Ma'am&ldquo;</h1><br>
+        		<h1>&ldquo;Pratibha Ma'am&ldquo;</h1>
+        		<h1>&ldquo;Pradeep Sir&ldquo;</h1>
+        	</div>
+        </div>
+      </div>
+      <div class="inside">
+        <p>&ldquo;Dear Teacher, on this special occasion of teachers day i want to thank you for not being only a teacher but more than a teacher. you become a good friend, a good teacher and a mentor who guides me in all ups and downs of my life. Happy Teachers day.&ldquo;</p>
+        <h2 class="flower2">&#127802;</h2>
+        <h2 class="flower3">&#127802;</h2>
+        <h2 class="flower1">&#127802;</h2>
+      </div>
+    </div>
+    <div class="bwc">Made with &#10084; by <a href="https://www.instagram.com/theasmitkid/">Asmit Gupta</a></div>
+  </body>
+</html>
